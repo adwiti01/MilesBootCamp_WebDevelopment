@@ -22,8 +22,7 @@ body{
     width:582px;
 }
 .divSearchBox{
-    display:block;
-    font: 16px arial,sans-serif;
+    display:block;    
     line-height: 34px;
     height: 34px !important;
     color: transparent;
@@ -32,13 +31,15 @@ body{
     background-color: transparent;
     border: none;
     margin: 0;
-    padding: 15px;
+    padding: 15px 0px 15px 30px;
     color: rgba(0,0,0,.87);
     outline: none;    
     cursor: text;
     text-align: start;
     flex: 100%;
-}
+    font: 16px arial,sans-serif;
+    appearance: textfield;
+    }
 .center{
     display:block;
     padding-top:20px;
@@ -62,6 +63,13 @@ body{
     cursor: pointer;
     user-select: none;
 }
+.inputSubmit:hover{
+    box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+    background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
+    background-color: #f8f8f8;
+    border: 1px solid #c6c6c6;
+    color: #222;
+}
 .footer{
     display:block;
     position:fixed;
@@ -73,12 +81,18 @@ body{
     font-size:14px;
     width:100%;
 }
+.footer a{
+    text-decoration:none;
+    color:#5F6368;
+}
+a:hover{
+    text-decoration: underline;    
+}
 .aPosition{
-    padding-left: 27px;
-    margin:0 !important;
+    padding-left: 20px;
+        
     }
-.leftFbar{
-    margin-left:30px;
+.leftFbar{    
     float:left;
     white-space:nowrap;
 }
