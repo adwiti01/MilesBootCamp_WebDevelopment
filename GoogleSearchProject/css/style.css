@@ -21,17 +21,12 @@ body{
     margin: 0 auto;
     width:582px;
 }
-.divSearchBox{
-    display:block;    
-    line-height: 34px;
-    height: 34px !important;
-    color: transparent;
-}
+
 .inputSearch{
     background-color: transparent;
     border: none;
     margin: 0;
-    padding: 15px 0px 15px 30px;
+    padding: 15px 30px 15px 30px;
     color: rgba(0,0,0,.87);
     outline: none;    
     cursor: text;
@@ -39,6 +34,7 @@ body{
     flex: 100%;
     font: 16px arial,sans-serif;
     appearance: textfield;
+    cursor: text;
     }
 .center{
     display:block;
