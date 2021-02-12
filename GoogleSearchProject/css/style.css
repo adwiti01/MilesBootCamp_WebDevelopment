@@ -42,10 +42,8 @@ body{
     appearance: textfield;    
     }
 
-.center{
-    display:block;
-    padding-top:20px;
-    text-align:center;
+.center{    
+    padding-top:20px;    
 }
 
 .inputSubmit
@@ -99,12 +97,10 @@ a:hover{
 
 .leftFbar{    
     float:left;
-    white-space:nowrap;
 }
 .rightFbar{
    margin-right:30px;
    float:right;
-   white-space:nowrap;
 }
 
         
