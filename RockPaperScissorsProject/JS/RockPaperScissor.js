@@ -7,6 +7,8 @@ const userOptions = {
 
 const user = "Player"; 
 const comp = "Computer";
+const tie = "tie";
+const defaultRounds = 3;//sets the default number of rounds
 
 var userSelection; //stores the selection made by the player
 var compSelection; //stores the selection made by the computer
@@ -14,42 +16,44 @@ var usrScore ;  // No. of times player wins
 var compScore ; // No. of times Computer wins 
 var tieScore ;  // No. of times there is a Tie between player and computer
 
-//Function to play the game through the console on click of the "Let's Play" button
+//Function to play the game through the console or on click of the "Let's Play" button
 function playGame()
-{    
-    //gets user input for number of rounds, default is set to 3 rounds
-    var userInput = prompt("How many rounds do you want to play?","3"); 
+{  
+    console.clear(); 
+
+    //gets user input for number of rounds, default number of rounds is set
+    var userInput = prompt("How many rounds do you want to play?",defaultRounds); 
 
     // Initializes the score counters for every click of the play button
     usrScore = 0;  
     compScore = 0; 
-    tieScore = 0;  
+    tieScore = 0;
 
     if(userInput!=null  && userInput!="")
     { 
         var rounds = parseInt(userInput); //stores no. of rounds to be played    
 
-        //When an invalid input is provided for the number of rounds 
-        //the user is prompted to provide a correct input, until they
-        //provide a valid input or choose to Cancel
+        /* When an invalid input is provided for the number of rounds 
+        the user is prompted to provide a correct input, until they
+        provide a valid input or choose to Cancel */
         while(isNaN(rounds))
         {        
-            userInput = prompt("That was an invalid input. Let's try again.\n How many rounds do you want to play?","3");            
+            userInput = prompt("That was an invalid input. Let's try again.\n How many rounds do you want to play?",defaultRounds);            
             if(userInput==null)//when CANCEL is clicked
             {
                 break;
             }
-            rounds = parseInt(userInput);
+            rounds = parseInt(userInput);            
         }
         if(userInput!=null && userInput!="")
         {
-            console.log("Let's Play");
-            console.log("We will play " + rounds + " rounds of Rock Paper Scissor");
+            console.log("%cLet's Play",'color:green');
+            console.log("We will play",rounds,"rounds of Rock Paper Scissor");
             
             //Loops for the number of rounds specified 
             for(var i=1; i<=rounds; i++)
             {
-                console.log("Round "+ i);
+                console.log("%cRound",'color:blue',i);
                 getCompSelection(); //generates Computer's selection
                 userSelection = prompt ("( Rock Paper Scissor ) SHOOT your option !!! \n This is Round " + i);
                 if(userSelection!=null && userSelection!="")
@@ -62,15 +66,15 @@ function playGame()
                     var result = getResult(userSelection.toLowerCase(),compSelection.toLowerCase());
 
                     //Displays the result and scores
-                    if(result !=null && result.toLowerCase()=="tie")
+                    if(result !=null && result.toLowerCase()==tie)
                     {
-                        console.log("Result : It's a Tie");
+                        console.log("%cResult :",'color:green','Its a',tie);
                     }
                     else
                     {
-                        console.log("Result : " + result +" wins");
+                        console.log('%cResult :','color:green',result,'wins');
                     }
-                    console.log("Score : Player wins " + usrScore + " Computer wins " + compScore + " They Tied " + tieScore + " times");
+                    console.log("%cScore :","color:red",user,"wins",usrScore,comp,"wins",compScore,"They Tied",tieScore,tieScore<=1?"time":"times");
                 }
                 else
                 {
@@ -122,23 +126,23 @@ function checkUserSelection(usrSel,compSel)
     {        
         case userOptions.PAPER :
         {
-            console.log("Player selected paper and Computer selected " + compSel);
+            console.log(user,"selected",userOptions.PAPER,"and",comp,"selected",compSel);
             break;
         }
         case userOptions.SCISSOR :
         {
-            console.log("Player selected scissor and Computer selected " + compSel);
+            console.log(user,"selected",userOptions.SCISSOR,"and",comp,"selected",compSel);
             break;
         }            
         case userOptions.ROCK :
         {
-            console.log("Player selected rock and Computer selected " + compSel);
+            console.log(user,"selected",userOptions.ROCK,"and",comp,"selected",compSel);
             break;
         }
         default:
         {
             userSelection = userOptions.ROCK;
-            console.log("Player selected rock and Computer selected " + compSel);
+            console.log(user,"selected",userOptions.ROCK,"and",comp,"selected",compSel);
             break;
         }                        
     }    
