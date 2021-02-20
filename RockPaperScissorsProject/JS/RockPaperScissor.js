@@ -9,6 +9,9 @@ const user = "Player";
 const comp = "Computer";
 const tie = "tie";
 const defaultRounds = 3;//sets the default number of rounds
+const style='color:green;font-size:16px;font-weight:bold';
+const styleResult='color:blue;font-size:14px;font-weight:bold';
+const styleScore='color:red;font-size:14px;font-weight:bold';
 
 var userSelection; //stores the selection made by the player
 var compSelection; //stores the selection made by the computer
@@ -47,13 +50,13 @@ function playGame()
         }
         if(userInput!=null && userInput!="")
         {
-            console.log("%cLet's Play",'color:green');
+            console.log("%cLet's Play",style);
             console.log("We will play",rounds,"rounds of Rock Paper Scissor");
             
             //Loops for the number of rounds specified 
             for(var i=1; i<=rounds; i++)
-            {
-                console.log("%cRound",'color:blue',i);
+            {                                
+                console.log("%cRound",style,i);
                 getCompSelection(); //generates Computer's selection
                 userSelection = prompt ("( Rock Paper Scissor ) SHOOT your option !!! \n This is Round " + i);
                 if(userSelection!=null && userSelection!="")
@@ -68,13 +71,13 @@ function playGame()
                     //Displays the result and scores
                     if(result !=null && result.toLowerCase()==tie)
                     {
-                        console.log("%cResult :",'color:green','Its a',tie);
+                        console.log("%cResult :",styleResult,'Its a',tie);
                     }
                     else
                     {
-                        console.log('%cResult :','color:green',result,'wins');
+                        console.log('%cResult :',styleResult,result,'wins');
                     }
-                    console.log("%cScore :","color:red",user,"wins",usrScore,comp,"wins",compScore,"They Tied",tieScore,tieScore<=1?"time":"times");
+                    console.log("%cScore :",styleScore,user,"wins",usrScore,comp,"wins",compScore,"They Tied",tieScore,tieScore<=1?"time":"times");
                 }
                 else
                 {
