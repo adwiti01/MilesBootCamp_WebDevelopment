@@ -40,11 +40,12 @@ function playGame()
     if(userInput!=null  && userInput!="")
     { 
         var rounds = parseInt(userInput); //stores no. of rounds to be played    
+        var reg = new RegExp('^[0-9]+$'); //Regex to check for only numbers
 
         /* When an invalid input is provided for the number of rounds 
         the user is prompted to provide a correct input, until they
         provide a valid input or choose to Cancel */
-        while(isNaN(rounds))
+        while(!reg.test(userInput))
         {        
             userInput = prompt("That was an invalid input. Let's try again.\n How many rounds do you want to play?",defaultRounds);            
             if(userInput==null)//when CANCEL is clicked
@@ -63,11 +64,11 @@ function playGame()
             console.log("We will play",rounds,"rounds of Rock Paper Scissor");
             
             //Loops for the number of rounds specified 
-            for(var i=1; i<=rounds; i++)
+            for(var cntRound=1; cntRound<=rounds; cntRound++)
             {                                
-                console.log("%cRound",style,i);
+                console.log("%cRound",style,cntRound);
                 getCompSelection(); //generates Computer's selection
-                userSelection = prompt ("( Rock Paper Scissor ) SHOOT your option !!! \n This is Round " + i);
+                userSelection = prompt ("( Rock Paper Scissor ) SHOOT your option !!! \n This is Round " + cntRound);
                 if(userSelection!=null && userSelection!="")
                 {
                     //Calls the function to check the user selected 
