@@ -9,13 +9,16 @@ const operators = {
 //Function to set focus on the first or second number textbox
 function setFocus()
 { 
-    if(document.getElementById("txtFirst").value=="") 
+    const firstNumEle = document.getElementById('txtFirst');
+    const secondNumEle = document.getElementById('txtSecond');
+
+    if(firstNumEle.value=="") 
     {
-        document.getElementById("txtFirst").focus();     
+        firstNumEle.focus();     
     }
-    else if(document.getElementById("txtSecond").value=="") 
+    else if(secondNumEle.value=="") 
     {
-        document.getElementById("txtSecond").focus();
+        secondNumEle.focus();
     }
 }
 
@@ -77,13 +80,15 @@ function getResult()
         if(mathOP!=null && mathOP!="")
         {
             result = doMath(firstNum,secondNum,mathOP);
-            if(result=="error")
+            if(result=="errorDivZero")
             {
                 resultEle.innerText = "";
             }
             else
             {
-                resultEle.innerText =  "The result of " + mathOP.toLowerCase() + "ing " + firstNum + " and " + secondNum + " is " + result;
+                let lastchar = mathOP.toLowerCase().charAt(mathOP.length-1); //remove e from Divide before displaying in result if operation is Divide
+                
+                resultEle.innerText =  "The result of " + (lastchar =="e" ? mathOP.toLowerCase().slice(0,-1) : mathOP.toLowerCase()) + "ing " + firstNum + " and " + secondNum + " is " + result;
             }
         }
         else
@@ -149,7 +154,7 @@ function doMath(num1, num2, op)
             if(num2==0){
                 alert("Division by Zero is not allowed.\nPlease provide a different second number.");
                 document.getElementById('txtSecond').select();
-                result="error";
+                result="errorDivZero";
                 return result;
             }
             else
