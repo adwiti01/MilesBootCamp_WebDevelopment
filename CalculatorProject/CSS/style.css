@@ -1,0 +1,54 @@
+body
+{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: powderblue;
+}
+.centerflex{
+    margin-top:15%;
+    text-align:center;
+}
+span{
+    padding:1%;
+}
+#lblFirst{
+    padding-left:10px;
+}
+#lblSecond{
+    padding-left:70px;
+}
+.textbox{
+    padding-top: 5px;
+}
+.textbox input{
+    border-radius: 4px;
+    border: 2px solid #000;
+    line-height: 20px;
+}
+.radio{
+    cursor:pointer;
+}
+.radio input[type="radio"]:checked+label{
+    font-weight: bold;
+}
+.buttons span{
+    padding:4px;
+}
+.buttons input
+{
+    border-radius: 4px;
+    line-height: 19px;
+    height: 25px;
+    cursor: pointer; 
+}
+#btnEvaluate{
+    background-color: rgb(44, 44, 218); 
+    width: 30px;   
+    }
+#btnCancel{
+    background-color: rgb(233, 227, 227);
+}
+#lblResult{
+    width : 60%;
+    text-align: justify;
+    font-size:20px;
+}
