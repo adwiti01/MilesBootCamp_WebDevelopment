@@ -8,8 +8,12 @@ const userOptions = {
 const user = "Player"; 
 const comp = "Computer";
 const tie = "tie";
-const defaultRounds = 3;//sets the default number of rounds
-const limitRounds = 10;//sets what is considered as a high number of rounds
+const defaultRounds = 3; //sets the default number of rounds
+const limitRounds = 10; //sets what is considered as a high number of rounds
+
+// this is the default option shown in the prompt 
+//as well as the one selected if an invalid entry is made
+const defaultOption = userOptions.ROCK; 
 
 //console styles
 const style='color:green;font-size:16px;font-weight:bold';
@@ -68,7 +72,7 @@ function playGame()
             {                                
                 console.log("%cRound",style,cntRound);
                 getCompSelection(); //generates Computer's selection
-                userSelection = prompt ("( Rock Paper Scissor ) SHOOT your option !!! \n This is Round " + cntRound);
+                userSelection = prompt ("( Rock Paper Scissor ) SHOOT your option !!! \n This is Round " + cntRound , defaultOption);
                 if(userSelection!=null && userSelection!="")
                 {
                     //Calls the function to check the user selected 
@@ -127,7 +131,7 @@ function getCompSelection()
         }
         default:
         {
-            compSelection = userOptions.ROCK;
+            compSelection = defaultOption;
             break;
         }
     }
@@ -158,8 +162,8 @@ function checkUserSelection(usrSel,compSel)
         }
         default:
         {
-            userSelection = userOptions.ROCK;
-            console.log(user,"selected",userOptions.ROCK,"and",comp,"selected",compSel);
+            userSelection = defaultOption;
+            console.log(user,"selected",defaultOption,"and",comp,"selected",compSel);
             break;
         }                        
     }    
