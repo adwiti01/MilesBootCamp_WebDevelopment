@@ -3,36 +3,55 @@ body
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background-color: powderblue;
 }
+
 .centerflex{
     margin-top:15%;
     text-align:center;
 }
+
 span{
     padding:1%;
 }
+
 #lblFirst{
     padding-left:10px;
 }
+
 #lblSecond{
     padding-left:70px;
 }
+
 .textbox{
     padding-top: 5px;
 }
+
 .textbox input{
     border-radius: 4px;
     border: 2px solid #000;
     line-height: 20px;
 }
+
+/*removes scroll from number type input textboxes*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
 .radio{
     cursor:pointer;
 }
+
 .radio input[type="radio"]:checked+label{
     font-weight: bold;
 }
+
 .buttons span{
     padding:4px;
 }
+
 .buttons input
 {
     border-radius: 4px;
@@ -40,17 +59,20 @@ span{
     height: 25px;
     cursor: pointer; 
 }
+
 #btnEvaluate{
     background-image: -webkit-linear-gradient(top,#1c73e6,#1c73e6);
     width: 30px;
     border:1px solid #1a6ad1;
     border-radius: 4px;   
-    }
+}
+
 #btnCancel{
     background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
     border:1px solid #5F6368;
     border-radius: 4px;
 }
+
 #lblResult{
     width : 60%;
     text-align: justify;
