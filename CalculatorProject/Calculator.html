@@ -1,52 +1,54 @@
 <!DOCTYPE html>
-<head>
-    <link rel="stylesheet" href="CSS/style.css"/>
-    <script src="JS/Calculator.js" ></script>
-</head>
-<body onload="setFocus()">
-        <div class="centerflex">
-            <div>
-                <span>
-                    <label id="lblFirst" >first number</label>
-                </span>
-                <span>
-                    <label id="lblSecond" >second number</label>
-                </span>
-            </div>        
-            <div class="textbox">
-                <span>                
-                    <input type="number" id="txtFirst" placeholder="Enter a number" required="true" />
-                </span>
-                <span>                
-                    <input type="number" id="txtSecond" placeholder="Enter a number" required="true" />
-                </span>
+<html>
+    <head>
+        <link rel="stylesheet" href="CSS/style.css"/>
+        <!-- <script src="JS/Calculator.js" ></script> -->
+    </head>
+    <body onload="setFocus()">
+            <div class="centerflex">
+                <div>
+                    <span>
+                        <label id="lblFirst" >first number</label>
+                    </span>
+                    <span>
+                        <label id="lblSecond" >second number</label>
+                    </span>
+                </div>        
+                <div class="textbox">
+                    <span>                
+                        <input type="number" id="txtFirst" placeholder="Enter a number" required="true" />
+                    </span>
+                    <span>                
+                        <input type="number" id="txtSecond" placeholder="Enter a number" required="true" />
+                    </span>
+                </div>
+                <br/>
+                <div class="radio">
+                    <input type="radio" id="rd_Add" name="operations" value="Add">
+                    <label for="Add" id="lblAdd" onmouseover="selectRadio('rd_Add')">Add</label>
+                    <input type="radio" id="rd_Sub" name="operations" value="Subtract">
+                    <label for="Subtract" id="lblSub" onmouseover="selectRadio('rd_Sub')">Subtract</label>
+                    <input type="radio" id="rd_Mul" name="operations" value="Multiply">
+                    <label for="Multiply" id="lblMul" onmouseover="selectRadio('rd_Mul')">Multiply</label>
+                    <input type="radio" id="rd_Div" name="operations" value="Divide">
+                    <label for="Divide" id="lblDiv" onmouseover="selectRadio('rd_Div')">Divide</label>
+                </div>
+                <br/>
+                <div class="buttons">
+                    <span>
+                        <input type="submit" id="btnEvaluate" value="=" onclick="getResult()"/>
+                    </span>
+                    <span>
+                        <input type="submit" id="btnCancel" value="Cancel" onclick="resetControls()"/>
+                    </span>
+                </div>
+                <br/>
+                <br/>
+                <div>
+                    <label id="lblResult" ></label>
+                </div>
             </div>
-            <br/>
-            <div class="radio">
-                <input type="radio" id="rd_Add" name="operations" value="Add">
-                <label for="Add" id="lblAdd" onmouseover="selectRadio('rd_Add')">Add</label>
-                <input type="radio" id="rd_Sub" name="operations" value="Subtract">
-                <label for="Subtract" id="lblSub" onmouseover="selectRadio('rd_Sub')">Subtract</label>
-                <input type="radio" id="rd_Mul" name="operations" value="Multiply">
-                <label for="Multiply" id="lblMul" onmouseover="selectRadio('rd_Mul')">Multiply</label>
-                <input type="radio" id="rd_Div" name="operations" value="Divide">
-                <label for="Divide" id="lblDiv" onmouseover="selectRadio('rd_Div')">Divide</label>
-            </div>
-            <br/>
-            <div class="buttons">
-                <span>
-                    <input type="submit" id="btnEvaluate" value="=" onclick="getResult()"/>
-                </span>
-                <span>
-                    <input type="submit" id="btnCancel" value="Cancel" onclick="resetControls()"/>
-                </span>
-            </div>
-            <br/>
-            <br/>
-            <div>
-                <label id="lblResult" ></label>
-            </div>
-        </div>
-</body>
-
+            
+            <script src="JS/Calculator.js" ></script>
+    </body>
 </html>

@@ -6,12 +6,13 @@ const operators = {
     DIVIDE : 'Divide'
 }
 
+const firstNumEle = document.getElementById('txtFirst'); //gets the first number textbox 
+const secondNumEle = document.getElementById('txtSecond'); //gets the second number textbox
+const resultEle = document.getElementById("lblResult"); //gets the result label
+
 //Function to set focus on the first or second number textbox
 function setFocus()
 { 
-    const firstNumEle = document.getElementById('txtFirst');
-    const secondNumEle = document.getElementById('txtSecond');
-
     if(firstNumEle.value=="") 
     {
         firstNumEle.focus();     
@@ -24,10 +25,10 @@ function setFocus()
 
 //Function to clear or reset controls
 function resetControls()
-{    
-    document.getElementById("txtFirst").value="";
-    document.getElementById("txtSecond").value="";
-    document.getElementById("lblResult").innerText="";
+{ 
+    firstNumEle.value = "";
+    secondNumEle.value = "";
+    resultEle.innerText="";
 
     getsetOperator("set"); //clear the selection of radio buttons
 
@@ -54,7 +55,7 @@ function validateTextBox(id)
     }
 }
 
-//Function to select a particular radio button
+//Function to select only one particular radio button
 function selectRadio(id)
 {
     document.getElementById(id).checked = true;
@@ -65,15 +66,11 @@ function selectRadio(id)
 //and display it
 function getResult()
 {
-    const firstNumEle = document.getElementById('txtFirst');
-    const secondNumEle = document.getElementById('txtSecond');
-    const resultEle = document.getElementById('lblResult');
-
     let firstNum = parseFloat(firstNumEle.value);
     let secondNum = parseFloat(secondNumEle.value);
     let mathOP = getsetOperator("get"); //get the operator selected
         
-    let result=0;
+    let result = 0;
 
     if(firstNumEle.value!="" && secondNumEle.value!="")
     {
@@ -88,7 +85,7 @@ function getResult()
             {
                 let lastchar = mathOP.toLowerCase().charAt(mathOP.length-1); //remove e from Divide before displaying in result if operation is Divide
                 
-                resultEle.innerText =  "The result of " + (lastchar =="e" ? mathOP.toLowerCase().slice(0,-1) : mathOP.toLowerCase()) + "ing " + firstNum + " and " + secondNum + " is " + result;
+                resultEle.innerText =  "The result of " + (lastchar =="e" ? mathOP.toLowerCase().slice(0,-1) : mathOP.toLowerCase()) + "ing " + firstNum + " and " + secondNum + " is " + result.toFixed(3);
             }
         }
         else
@@ -113,14 +110,16 @@ function getsetOperator(prop)
 
     if(prop=="get")
     {
-        radioEle.forEach((element) => {
-            if(element.checked)
+        //for in loop used instead of foreach to break away from loop 
+        //when checked radio button is detected
+        for(element in radioEle)
+        {
+            if(radioEle[element].checked)
             {
-                op = element.value;
-                //return op;                           
+                op = radioEle[element].value;
+                return op;
             }
-        }); 
-        return op;
+        }
     }
     else
     {
@@ -162,6 +161,9 @@ function doMath(num1, num2, op)
                 result = num1 / num2;
                 break;
             }
+        }
+        default : {
+            break;
         }    
     }
     return result;
